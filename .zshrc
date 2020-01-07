@@ -105,7 +105,8 @@ function powerline_precmd() {
         __DURATION="$(($__ERT - ${__TIMER:-__ERT}))"
     fi
 
-    eval "$($GOPATH/bin/powerline-go -error $? -shell zsh \
+    eval "$($GOPATH/bin/powerline-go -error $__ERRCODE -shell zsh \
+        -numeric-exit-codes \
         -mode patched -duration $__DURATION \
         -modules kube,ssh,cwd,git \
         -eval -modules-right exit,duration)"
